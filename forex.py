@@ -16,6 +16,9 @@ class ForexHelper:
         data_directory = os.path.join(os.path.dirname(__file__), 'forex_data')
         filename = f"{base_currency}.json"
         data_file_path = os.path.join(data_directory, filename)
+        if not os.path.exists(data_directory):
+            # folder not found error fix
+            os.mkdir(data_directory)
         if not os.path.exists(data_file_path):
             refresh = True
 
